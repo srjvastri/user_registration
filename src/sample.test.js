@@ -14,6 +14,7 @@ describe('Listing page', ()=>{
     })
 })
 
+
 describe('Testing_1_APP', ()=>{
     it('test on App',()=>{
      const wrap = shallow(<App/>);
@@ -22,10 +23,21 @@ describe('Testing_1_APP', ()=>{
     })
 })
 
-describe('counter_testing', ()=>{
-    test('Should display User Registry in header',()=>{
-     const { getByText } = render(<App />);
-     const element = getByText("User Registraion");
-     expect(element).toBeInTheDocumnet();
+
+it('User registration present in the page',()=>{
+    const wrapper = shallow(<App/>);
+    const header=wrapper.find('h1').text();
+    expect(header).equal('User Registraion');
+})
+
+
+describe('sample_Testing_1_APP', ()=>{
+    it('test on App',()=>{
+     const wrap = shallow(<App/>);
+     const hea=wrap.find('h1');
+     expect(hea).to.have.lengthOf(1);
     })
 })
+
+
+
