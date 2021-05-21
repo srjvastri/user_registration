@@ -21,26 +21,6 @@ const columns = [
 ];
 
 
-
-
-
-// const rows = [
-//   {"name" : 'India', "email" : '4567sdcjsb@nsdskn.com', "gender" : "Male", "status" : "Active" ,"density" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-//   {"name" : 'India', "country" : 'IN', "pop" : 1324171354, "spop " : 3287263 ,"den" :  89},
-
-  
-// ];
-
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -56,7 +36,7 @@ export const FTable=()=> {
   const [rows, setUsersData] = useState([]);
   const [totalpages, setTotalPages] = useState([]);
   const [pageNo, setPageNo] = useState(1);
-  console.log("FetchUser(1)");
+  
   
 
   useEffect(() => {
