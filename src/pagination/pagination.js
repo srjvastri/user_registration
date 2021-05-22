@@ -2,8 +2,7 @@ import React from 'react'
 import './pagination.css'
 import { useState, useEffect } from 'react';
 import SkipNextRoundedIcon from '@material-ui/icons/SkipNextRounded';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import SkipPreviousRoundedIcon from '@material-ui/icons/SkipPreviousRounded';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -13,26 +12,28 @@ const useStyles = makeStyles({
       color: 'white',
       width:120,
       fontWeight:'1000',
-    //   fontSize:'13px',
-      marginLeft:10,
+      marginLeft: 10,
       marginTop : -3
     },
+
     backwardicon : {
         opacity: '1.0',
         cursor:'pointer',
         display: 'inline',
         marginTop: 10,
-        marginLeft:500, 
-        height:15
+        marginLeft:200, 
+        height:40,
+        marginTop : 1
     },
+
     forwardicon : {
         opacity: '1.0',
         cursor:'pointer',
         display: 'inline',
+        marginLeft: 15,
         marginTop: 10,
-        height:30
+        height: 40
     }
-
   });
 
 const Pagination = ({onPage, currentPage, totalPages}) => {
@@ -63,13 +64,13 @@ const Pagination = ({onPage, currentPage, totalPages}) => {
     return (
         <div>
             <div className = "pagination">    
-                <ArrowBackIosIcon className = {classes.backwardicon} onClick = { (e) =>   Back(e)}/>
-                <div className = "pagelabel"> 
-                 Page {currentPage} from total {totalPages} pages
+                <SkipPreviousRoundedIcon className = {classes.backwardicon} onClick = { (e) => Back(e)}/>
+                <div className = "pagelabel">
+                    Page {currentPage} From {totalPages} Pages
                 </div>
-                <SkipNextRoundedIcon className = {classes.forwardicon} onClick = { (e) => Next(e)}/>
                 <Button variant="contained" color = "primary" className = {classes.root} onClick = {getPage}> Page </Button>
                 <input type = "number" className = "skiptoinput" onChange = { (e) => setPage(e.target.value)}></input>
+                <SkipNextRoundedIcon className = {classes.forwardicon} onClick = { (e) => Next(e)}/>
             </div>
         </div>
     )
