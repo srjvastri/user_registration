@@ -1,0 +1,34 @@
+.pageinput{
+    width: 3vh;
+    height: 3vh;
+    margin-top: 0vh;
+    /* display: inline; */
+}
+
+.pagelabel{
+    display: inline;
+    font-size: 2.0vh;
+    margin-left: -1vh;
+}
+
+.skipto{
+    margin-left: 60vh;
+    display: inline;
+    background-color: #ff2f20;
+    color : rgb(0, 0, 0);
+    font-size: medium;
+    border-radius: 5px;
+    border-color: 1px solid #ff2f20;
+}
+
+.skiptoinput{
+    width:4vh;
+    margin-left: 2vh;
+    height: 3vh;
+    margin-top: 1vh;
+}
+
+.pagination{
+    margin-left: 90vh;
+    margin-top: 2vh;
+}

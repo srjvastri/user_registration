@@ -10,7 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import FetchUser from './fetchuser';
-
+import Pagination from './pagination/pagination'
 
 
 const columns = [
@@ -45,10 +45,16 @@ export const FTable=()=> {
   
 
   async function getdata() {
-    var data = await FetchUser(1)
+    var data = await FetchUser(pageNo)
     console.log(data.data);
     
     setUsersData(data.data)
+    setTotalPages(data.meta.pagination.pages);
+  }
+
+  const onCurrentPage = (onPage) => {
+    console.log(onPage)
+    setPageNo(onPage)
   }
   
   const classes = useStyles();
@@ -63,6 +69,9 @@ export const FTable=()=> {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const new_page = (onPage) => {
+    setPageNo(onPage)    
+  }
 
   return (
     <Paper className={classes.root}>
@@ -99,15 +108,7 @@ export const FTable=()=> {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[5, 10, 20]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
+      <Pagination onPage = {new_page} currentPage = {pageNo} totalPages = {totalpages}/>
     </Paper>
   );
 }
