@@ -64,13 +64,13 @@ const Pagination = ({onPage, currentPage, totalPages}) => {
     return (
         <div>
             <div className = "pagination">    
-                <SkipPreviousRoundedIcon className = {classes.backwardicon} onClick = { (e) => Back(e)}/>
+                <SkipPreviousRoundedIcon className = {classes.backwardicon} id = "back_b" onClick = { (e) => Back(e)}/>
                 <div className = "pagelabel">
                     Page {currentPage} From {totalPages} Pages
                 </div>
                 <Button variant="contained" color = "primary" className = {classes.root} onClick = {getPage}> Page </Button>
                 <input type = "number" className = "skiptoinput" onChange = { (e) => setPage(e.target.value)}></input>
-                <SkipNextRoundedIcon className = {classes.forwardicon} onClick = { (e) => Next(e)}/>
+                <SkipNextRoundedIcon className = {classes.forwardicon} id = "next_b" onClick = { (e) => Next(e)}/>
             </div>
         </div>
     )
