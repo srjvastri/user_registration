@@ -10,8 +10,8 @@ import TableRow from '@material-ui/core/TableRow';
 import FetchUser from './fetchuser';
 import Pagination from './pagination/pagination'
 import './Table.css'
-// import EditSymbol from './edituser/editsymbol'
-// import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import EditSymbol from './edituser/editsymbol'
+import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 
 
 const columns = [
@@ -102,8 +102,8 @@ export const UserTable=()=> {
                        <TableCell align="center">{user.email}</TableCell>
                        <TableCell align="center">{user.gender}</TableCell>
                        <TableCell align="center">{user.status}</TableCell>
-                       {/* <EditSymbol user = {user}/>
-                       <TableCell align="center"><DeleteSweepIcon className = "icon"/></TableCell> */}
+                       <EditSymbol user = {user}/>
+                       <TableCell align="center"><DeleteSweepIcon className = "icon"/></TableCell>
     </TableRow>
      ) 
      
