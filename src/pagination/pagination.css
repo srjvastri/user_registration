@@ -32,3 +32,9 @@
     margin-left: 90vh;
     margin-top: 2vh;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,12 +1,16 @@
 import React from 'react';
+// import AddUser from './adduser/AddUser';
 import './App.css';
 import { UserTable } from './Table' ;
+import AddUser from './adduser/AddUser';
 
 function App() {
   return (
     <div className="App">
+        
       <h1>User Registraion</h1>
-        <UserTable/>
+      <AddUser/>
+      <UserTable/>
     </div>
   );
 }
