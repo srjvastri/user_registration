@@ -1,4 +1,4 @@
-const postUser = async(user) => {
+const updateApi = async(user) => {
     const res = await
     fetch('https://gorest.co.in/public-api/users',
     {
@@ -21,4 +21,4 @@ const postUser = async(user) => {
     return data
 }
 
-export default postUser
+export default updateApi

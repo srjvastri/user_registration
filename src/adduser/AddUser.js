@@ -12,14 +12,12 @@ const useStyles = makeStyles({
       fontSize:'20px',
       height:50,
       width:200,
-      marginLeft:1540,
-      marginTop : 10,
-      marginbottum : 90,
+      marginLeft:1400,
       background: '#F23030'
     },
     addbutton: {
         marginRight:20,
-        marginbottum : 20,
+        marginbottum : 5,
         marginTop : 5
     }
     

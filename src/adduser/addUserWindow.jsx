@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import './AddUser.css'
 import { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
-import '../postUser';
-import postUser from '../postUser'
+import '../updateApi';
+import updateApi from '../updateApi'
 
 const useStyles = makeStyles({
     submit_form_box:{
@@ -44,7 +44,7 @@ const AddUserForm = ({CloseButton}) => {
 
     const after_submit = async () => {
         const filled_details = {name, email, gender, status}
-        var details = await postUser(filled_details)
+        var details = await updateApi(filled_details)
         if( parseInt(details.code/100) === 2 ) {
             CloseButton(false)
         }

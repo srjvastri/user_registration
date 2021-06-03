@@ -14,13 +14,13 @@ const useStyles = makeStyles({
       fontWeight:'1000',
     //   fontSize:'13px',
       marginLeft:10,
-      marginTop : -3
+      marginTop : -5
     },
     backwardicon : {
         opacity: '1.0',
         cursor:'pointer',
         display: 'inline',
-        marginTop: 10,
+        // marginTop: 10,
         marginRight: 20, 
         height:30
     },
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
         opacity: '1.0',
         cursor:'pointer',
         display: 'inline',
-        marginTop: 10,
+        // marginTop: 10,
         marginLeft : 20,
         height:30
     }

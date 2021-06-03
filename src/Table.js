@@ -9,6 +9,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import FetchUser from './fetchuser';
 import Pagination from './pagination/pagination'
+import './Table.css'
+// import EditSymbol from './edituser/editsymbol'
+// import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 
 
 const columns = [
@@ -16,6 +19,8 @@ const columns = [
   { id: 'email', label: 'email', minWidth: 100 },
   { id: 'gender', label: 'gender', minWidth: 100 },
   { id: 'status', label: 'status', minWidth: 100 },  
+  { id: 'edit', label: 'edit', minWidth: 100 },
+  { id: 'remove', label: 'delete', minWidth: 100 }
 ];
 
 
@@ -29,6 +34,17 @@ const useStyles = makeStyles({
 });
 
 export const UserTable=()=> {
+  const useStyles = makeStyles({
+    root: {
+      background: '#F23030',
+      color: 'white',
+      fontWeight:'900'
+    },
+    container:
+    {
+      color : 'Green'
+    }
+  });
 
 
   const [rows, setUsersData] = useState([]);
@@ -44,6 +60,7 @@ export const UserTable=()=> {
 
   async function getdata() {
     var data = await FetchUser(pageNo)
+
     setUsersData(data.data)
     setTotalPages(data.meta.pagination.pages);
   }
@@ -59,41 +76,43 @@ export const UserTable=()=> {
   }
 
   return (
-    <Paper className={classes.root}>
+    <Paper >
+      <Pagination onPage = {new_page} currentPage = {pageNo} totalPages = {totalpages}/>
+      <Paper classesName = {classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
+            <TableCell className = {classes.root} align="center">Id</TableCell>
+                <TableCell className = {classes.root} align="center">Name</TableCell>
+                <TableCell className = {classes.root} align="center">Email</TableCell>
+                <TableCell className = {classes.root} align="center">Gender</TableCell>
+                <TableCell className = {classes.root} align="center">Status</TableCell>
+                <TableCell className = {classes.root} align="center"> edit</TableCell>
+                <TableCell className = {classes.root} align="center"> Remove </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
+          {
+    
+    rows && rows.map ((user,key) =>
+     <TableRow key = {user.id}>
+                       <TableCell align="center">{user.id}</TableCell>
+                       <TableCell align="center">{user.name}</TableCell>
+                       <TableCell align="center">{user.email}</TableCell>
+                       <TableCell align="center">{user.gender}</TableCell>
+                       <TableCell align="center">{user.status}</TableCell>
+                       {/* <EditSymbol user = {user}/>
+                       <TableCell align="center"><DeleteSweepIcon className = "icon"/></TableCell> */}
+    </TableRow>
+     ) 
+     
+   }
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination onPage = {new_page} currentPage = {pageNo} totalPages = {totalpages}/>
+      
+    </Paper>
     </Paper>
   );
 }
