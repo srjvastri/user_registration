@@ -10,8 +10,9 @@ import TableRow from '@material-ui/core/TableRow';
 import FetchUser from './fetchuser';
 import Pagination from './pagination/pagination'
 import './Table.css'
-// import EditSymbol from './edituser/editsymbol'
-// import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import EditSymbol from './edituser/editsymbol'
+
+// import RemoveUser from './removeuser/removeuser';
 
 
 const columns = [
@@ -56,6 +57,9 @@ export const UserTable=()=> {
   useEffect(() => {
     getdata()
   })
+  function search(rows){
+    return  (rows.filter(row => row.status.indexOf(q) > -1) || (row => row.gender.indexOf(q) > -1)) 
+  }
   
 
   async function getdata() {
@@ -75,8 +79,13 @@ export const UserTable=()=> {
     setPageNo(onPage)    
   }
 
+  
+  const [q, setQ] = useState("");
+  
   return (
     <Paper >
+      {/* <input type = "text" value = {q} onChange = {(e) => setQ(e.target.value)} /> */}
+      
       <Pagination onPage = {new_page} currentPage = {pageNo} totalPages = {totalpages}/>
       <Paper classesName = {classes.root}>
       <TableContainer className={classes.container}>
@@ -95,15 +104,16 @@ export const UserTable=()=> {
           <TableBody>
           {
     
-    rows && rows.map ((user,key) =>
+    search(rows) && search(rows).map ((user,key) =>
      <TableRow key = {user.id}>
                        <TableCell align="center">{user.id}</TableCell>
                        <TableCell align="center">{user.name}</TableCell>
                        <TableCell align="center">{user.email}</TableCell>
                        <TableCell align="center">{user.gender}</TableCell>
                        <TableCell align="center">{user.status}</TableCell>
-                       {/* <EditSymbol user = {user}/>
-                       <TableCell align="center"><DeleteSweepIcon className = "icon"/></TableCell> */}
+                       <EditSymbol user = {user}/>
+                       {/* <RemoveUser user = {user}/> */}
+                       
     </TableRow>
      ) 
      

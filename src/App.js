@@ -1,5 +1,4 @@
 import React from 'react';
-// import AddUser from './adduser/AddUser';
 import './App.css';
 import { UserTable } from './Table' ;
 import AddUser from './adduser/AddUser';

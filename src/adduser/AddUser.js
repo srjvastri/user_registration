@@ -47,7 +47,6 @@ const AddUser = () => {
             Add User
         </Button>
         </div>
-        {/* <h1> testing </h1> */}
          <Modal
          open = {open}
          onClose={closing}
