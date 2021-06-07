@@ -51,13 +51,7 @@ const EditUser=({CloseButton,user})=>
     
     
 
-    // const after_submit = async () => {
-    //     const details = {id,name, email, gender, status}
-    //     var data = await editApi(details)
-    //     if( parseInt(data.code/100) === 2 ) {
-    //         remove(false);
-    //     }
-    // }
+    
     const after_submit = async () => {
         const user = {id,name, email, gender, status}
         var data = await editApi(user)
